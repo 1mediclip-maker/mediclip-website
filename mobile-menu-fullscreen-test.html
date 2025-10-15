@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모바일 메뉴 풀스크린 테스트</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'mediclip-navy': '#0F1541',
+                        'mediclip-yellow': '#FFD43B',
+                        'mediclip-light-yellow': '#FFF8E1'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- 테스트 헤더 (고정) -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-lg z-30">
+        <div class="container mx-auto px-4 py-4">
+            <nav class="flex items-center justify-between">
+                <div class="text-lg font-bold text-mediclip-navy">MEDICLIP</div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-mediclip-navy text-xl focus:outline-none" type="button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="md:hidden fixed inset-0 bg-black bg-opacity-60 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden fixed inset-0 z-60 transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex h-full">
+            <!-- 왼쪽 빈 공간 (터치하면 메뉴 닫기) -->
+            <div class="flex-1 min-w-0" id="mobile-menu-left-space"></div>
+            
+            <!-- 오른쪽 메뉴 패널 -->
+            <div class="w-80 max-w-sm bg-white shadow-2xl flex flex-col">
+                <!-- 메뉴 헤더 -->
+                <div class="flex items-center justify-between p-6 border-b border-gray-200 bg-mediclip-navy">
+                    <div class="text-lg font-bold text-white">MEDICLIP</div>
+                    <button id="mobile-menu-close" class="text-white hover:text-mediclip-yellow text-xl p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <!-- 메뉴 항목들 -->
+                <div class="flex-1 p-6 space-y-3 overflow-y-auto">
+                    <a href="#solutions" class="mobile-menu-link flex items-center text-gray-700 hover:text-mediclip-navy hover:bg-mediclip-light-yellow transition-all py-4 px-4 rounded-xl text-lg font-medium group">
+                        <i class="fas fa-hospital text-mediclip-navy w-8 mr-4 text-xl group-hover:scale-110 transition-transform"></i>
+                        <span>메디클립 서비스</span>
+                    </a>
+                    <a href="#comparison" class="mobile-menu-link flex items-center text-gray-700 hover:text-mediclip-navy hover:bg-mediclip-light-yellow transition-all py-4 px-4 rounded-xl text-lg font-medium group">
+                        <i class="fas fa-balance-scale text-mediclip-navy w-8 mr-4 text-xl group-hover:scale-110 transition-transform"></i>
+                        <span>차별점</span>
+                    </a>
+                    <a href="#results" class="mobile-menu-link flex items-center text-gray-700 hover:text-mediclip-navy hover:bg-mediclip-light-yellow transition-all py-4 px-4 rounded-xl text-lg font-medium group">
+                        <i class="fas fa-chart-line text-mediclip-navy w-8 mr-4 text-xl group-hover:scale-110 transition-transform"></i>
+                        <span>성과</span>
+                    </a>
+                    <a href="#testimonials" class="mobile-menu-link flex items-center text-gray-700 hover:text-mediclip-navy hover:bg-mediclip-light-yellow transition-all py-4 px-4 rounded-xl text-lg font-medium group">
+                        <i class="fas fa-comments text-mediclip-navy w-8 mr-4 text-xl group-hover:scale-110 transition-transform"></i>
+                        <span>고객후기</span>
+                    </a>
+                </div>
+                
+                <!-- CTA 버튼 -->
+                <div class="p-6 border-t border-gray-200 bg-gray-50">
+                    <button id="mobile-cta-button" class="block w-full bg-mediclip-yellow text-mediclip-navy px-6 py-5 rounded-full font-bold hover:bg-mediclip-navy hover:text-mediclip-yellow transition-colors text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 active:scale-95">
+                        💡 무료 진단 신청
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="pt-20">
+        <!-- 긴 콘텐츠로 스크롤 테스트 -->
+        <div class="min-h-screen p-6">
+            <div class="max-w-2xl mx-auto">
+                <h1 class="text-3xl font-bold mb-8 text-center text-mediclip-navy">
+                    📱 풀스크린 모바일 메뉴 테스트
+                </h1>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h2 class="text-xl font-semibold mb-4 text-mediclip-navy">🎯 주요 개선사항</h2>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong>풀스크린 메뉴:</strong> 전체 화면을 덮어 모든 메뉴가 한눈에 보임</li>
+                        <li><strong>스크롤 불필요:</strong> 헤더 위로 완전히 노출되어 스크롤 필요 없음</li>
+                        <li><strong>향상된 헤더:</strong> 메디클립 브랜드 컬러로 강화</li>
+                        <li><strong>더 큰 터치 영역:</strong> 메뉴 항목들이 더 크고 터치하기 쉬움</li>
+                        <li><strong>왼쪽 터치 닫기:</strong> 왼쪽 빈 공간 터치로도 메뉴 닫기</li>
+                    </ul>
+                </div>
+
+                <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                    <h3 class="text-lg font-semibold text-green-800 mb-2">✅ 테스트 방법</h3>
+                    <ol class="list-decimal list-inside space-y-1 text-green-700 text-sm">
+                        <li>모바일 화면으로 전환 (F12 → 모바일 모드)</li>
+                        <li>페이지를 아래로 스크롤해서 헤더가 상단에 고정되는지 확인</li>
+                        <li>햄버거 버튼(☰) 클릭</li>
+                        <li>메뉴가 전체 화면을 덮고 모든 항목이 한눈에 보이는지 확인</li>
+                        <li>각 메뉴 항목과 CTA 버튼의 호버 효과 확인</li>
+                        <li>왼쪽 빈 공간, X 버튼, ESC 키로 메뉴 닫기 테스트</li>
+                    </ol>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <p class="text-blue-800 font-medium">🔍 실시간 로그 확인</p>
+                    <p class="text-blue-600 text-sm mt-1">
+                        F12 → Console에서 메뉴 동작을 실시간으로 확인하세요.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 테스트용 긴 섹션들 -->
+        <div class="space-y-20 p-6">
+            <section id="solutions" class="min-h-screen bg-white rounded-lg shadow-md p-8 flex items-center justify-center">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold text-mediclip-navy mb-4">📋 메디클립 서비스</h2>
+                    <p class="text-xl text-gray-600">병원 맞춤형 마케팅 솔루션</p>
+                    <p class="text-gray-500 mt-4">스크롤해서 다른 섹션들도 확인해보세요.</p>
+                </div>
+            </section>
+
+            <section id="comparison" class="min-h-screen bg-yellow-100 rounded-lg shadow-md p-8 flex items-center justify-center">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold text-mediclip-navy mb-4">⚖️ 차별점</h2>
+                    <p class="text-xl text-gray-600">병원 현장을 아는 것 vs 모르는 것</p>
+                </div>
+            </section>
+
+            <section id="results" class="min-h-screen bg-blue-100 rounded-lg shadow-md p-8 flex items-center justify-center">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold text-mediclip-navy mb-4">📈 성과</h2>
+                    <p class="text-xl text-gray-600">검증된 마케팅 결과</p>
+                </div>
+            </section>
+
+            <section id="testimonials" class="min-h-screen bg-green-100 rounded-lg shadow-md p-8 flex items-center justify-center">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold text-mediclip-navy mb-4">💬 고객후기</h2>
+                    <p class="text-xl text-gray-600">원장님들의 생생한 후기</p>
+                </div>
+            </section>
+
+            <section id="cta" class="min-h-screen bg-orange-100 rounded-lg shadow-md p-8 flex items-center justify-center">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold text-mediclip-navy mb-4">💡 무료 진단 신청</h2>
+                    <p class="text-xl text-gray-600">지금 바로 신청하세요!</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // 모바일 메뉴 JavaScript (풀스크린 버전)
+        let mobileMenuOpen = false;
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.getElementById('mobile-menu-button');
+            const overlay = document.getElementById('mobile-menu-overlay');
+            
+            if (!mobileMenu || !menuButton || !overlay) {
+                console.error('Mobile menu elements not found');
+                return;
+            }
+            
+            mobileMenuOpen = !mobileMenuOpen;
+            
+            if (mobileMenuOpen) {
+                // 풀스크린 메뉴 열기
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                overlay.classList.add('opacity-100', 'pointer-events-all');
+                
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+                
+                document.body.style.overflow = 'hidden';
+                console.log('✅ Fullscreen mobile menu opened');
+            } else {
+                // 풀스크린 메뉴 닫기
+                overlay.classList.remove('opacity-100', 'pointer-events-all');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+                
+                document.body.style.overflow = '';
+                console.log('✅ Fullscreen mobile menu closed');
+            }
+        }
+
+        function closeMobileMenu() {
+            if (mobileMenuOpen) {
+                toggleMobileMenu();
+            }
+        }
+
+        function scrollToCTA() {
+            const ctaSection = document.getElementById('cta');
+            if (ctaSection) {
+                ctaSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+            const mobileCTAButton = document.getElementById('mobile-cta-button');
+            const overlay = document.getElementById('mobile-menu-overlay');
+            const closeButton = document.getElementById('mobile-menu-close');
+            const leftSpace = document.getElementById('mobile-menu-left-space');
+            
+            console.log('🚀 Initializing fullscreen mobile menu...');
+            
+            // 햄버거 버튼
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('🍔 Hamburger clicked');
+                    toggleMobileMenu();
+                });
+            }
+            
+            // X 버튼
+            if (closeButton) {
+                closeButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('❌ Close button clicked');
+                    closeMobileMenu();
+                });
+            }
+            
+            // 오버레이 클릭
+            if (overlay) {
+                overlay.addEventListener('click', function(e) {
+                    console.log('🌍 Overlay clicked');
+                    closeMobileMenu();
+                });
+            }
+            
+            // 왼쪽 빈 공간 클릭
+            if (leftSpace) {
+                leftSpace.addEventListener('click', function(e) {
+                    console.log('⬅️ Left space clicked');
+                    closeMobileMenu();
+                });
+            }
+            
+            // 메뉴 링크들
+            mobileMenuLinks.forEach((link, index) => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    const menuText = this.querySelector('span').textContent.trim();
+                    
+                    console.log(`🔗 Menu clicked: ${menuText} → ${targetId}`);
+                    
+                    closeMobileMenu();
+                    
+                    setTimeout(() => {
+                        if (targetSection) {
+                            targetSection.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                            console.log(`✅ Scrolled to: ${targetId}`);
+                        } else {
+                            console.error(`❌ Section not found: ${targetId}`);
+                        }
+                    }, 400);
+                });
+            });
+            
+            // CTA 버튼
+            if (mobileCTAButton) {
+                mobileCTAButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('🎯 CTA button clicked');
+                    closeMobileMenu();
+                    setTimeout(() => {
+                        scrollToCTA();
+                    }, 400);
+                });
+            }
+            
+            // ESC 키
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenuOpen) {
+                    console.log('⌨️ ESC pressed');
+                    closeMobileMenu();
+                }
+            });
+            
+            console.log('✅ Fullscreen mobile menu initialized!');
+        });
+    </script>
+</body>
+</html>

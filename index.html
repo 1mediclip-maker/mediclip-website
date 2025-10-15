@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="병원 전문 경영컨설팅 & 마케팅 대행사 메디클립 - 병원 현장을 아는 마케팅 전문가들과 함께하세요">
+    <title>메디클립 - 병원 전문 경영·마케팅 컨설팅</title>
+    
+    <!-- CDN Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'mediclip-navy': '#0F1541',
+                        'mediclip-navy-light': '#1a237e',
+                        'mediclip-yellow': '#FFD43B',
+                        'mediclip-light-yellow': '#FFF8E1',
+                        'mediclip-yellow-bg': '#FFF9E0'
+                    },
+                    fontFamily: {
+                        'noto': ['Noto Sans KR', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-noto">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-1 md:py-4">
+            <nav class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="h-8 md:h-10">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/393983cb03d9de99efee6ccb7ec46a05" alt="MEDICLIP 로고" class="h-full w-auto object-contain">
+                    </div>
+
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#solutions" class="text-gray-700 hover:text-mediclip-navy transition-colors">메디클립 서비스</a>
+                    <a href="#comparison" class="text-gray-700 hover:text-mediclip-navy transition-colors">차별점</a>
+                    <a href="#results" class="text-gray-700 hover:text-mediclip-navy transition-colors">성과</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-mediclip-navy transition-colors">고객후기</a>
+                    <button onclick="scrollToCTA()" class="bg-mediclip-yellow text-mediclip-navy px-6 py-2 rounded-full font-semibold hover:bg-mediclip-navy hover:text-mediclip-yellow transition-colors">
+                        <i class="fas fa-lightbulb text-mediclip-navy mr-2"></i>마케팅 진단 신청
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-mediclip-navy text-xl focus:outline-none" type="button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="md:hidden fixed inset-0 bg-black bg-opacity-60 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden fixed inset-0 z-60 transform translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex h-full">
+                <!-- 왼쪽 빈 공간 (터치하면 메뉴 닫기) -->
+                <div class="flex-1 min-w-0" id="mobile-menu-left-space"></div>
+                
+                <!-- 오른쪽 메뉴 패널 -->
+                <div class="w-72 max-w-sm bg-white shadow-2xl flex flex-col justify-center">
+                    <!-- 메뉴 헤더 -->
+                    <div class="absolute top-0 left-0 right-0 flex items-center justify-between p-4 bg-mediclip-navy">
+                        <div class="text-lg font-bold text-white">MEDICLIP</div>
+                        <button id="mobile-menu-close" class="text-white hover:text-mediclip-yellow text-xl p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- 메뉴 항목들 - 중앙 정렬 및 컴팩트 디자인 -->
+                    <div class="flex-1 flex flex-col justify-center px-6 py-8 space-y-4">
+                        <a href="#solutions" class="mobile-menu-link flex items-center justify-center text-gray-700 hover:text-mediclip-navy hover:bg-mediclip-light-yellow transition-all py-3 px-4 rounded-lg text-base font-medium group border border-gray-200">
+                            <i class="fas fa-hospital text-mediclip-navy mr-3 group-hover:scale-110 transition-transform"></i>
+                            <span>메디클립 서비스</span>
+                        </a>
+                        <a href="#comparison" class="mobile-menu-link flex items-center justify-center text-gray-700 hover:text-mediclip-navy hover:bg-mediclip-light-yellow transition-all py-3 px-4 rounded-lg text-base font-medium group border border-gray-200">
+                            <i class="fas fa-balance-scale text-mediclip-navy mr-3 group-hover:scale-110 transition-transform"></i>
+                            <span>차별점</span>
+                        </a>
+                        <a href="#results" class="mobile-menu-link flex items-center justify-center text-gray-700 hover:text-mediclip-navy hover:bg-mediclip-light-yellow transition-all py-3 px-4 rounded-lg text-base font-medium group border border-gray-200">
+                            <i class="fas fa-chart-line text-mediclip-navy mr-3 group-hover:scale-110 transition-transform"></i>
+                            <span>성과</span>
+                        </a>
+                        <a href="#testimonials" class="mobile-menu-link flex items-center justify-center text-gray-700 hover:text-mediclip-navy hover:bg-mediclip-light-yellow transition-all py-3 px-4 rounded-lg text-base font-medium group border border-gray-200">
+                            <i class="fas fa-comments text-mediclip-navy mr-3 group-hover:scale-110 transition-transform"></i>
+                            <span>고객후기</span>
+                        </a>
+                        
+                        <!-- CTA 버튼을 메뉴 항목과 함께 배치 -->
+                        <div class="pt-4">
+                            <button id="mobile-cta-button" class="w-full bg-mediclip-yellow text-mediclip-navy px-6 py-4 rounded-full font-bold hover:bg-mediclip-navy hover:text-mediclip-yellow transition-colors text-base shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 group">
+                                <i class="fas fa-lightbulb text-mediclip-navy mr-2 group-hover:text-mediclip-yellow"></i>마케팅 진단 신청
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1️⃣ HERO Section -->
+    <section class="relative min-h-screen md:min-h-[120vh] bg-gradient-to-br from-mediclip-navy to-mediclip-navy-light flex items-center justify-center overflow-hidden py-16 md:py-20">
+        <div class="absolute inset-0 bg-black opacity-10"></div>
+        <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight mt-16 md:mt-24">
+                <span class="block headline-large-gap">병원 마케팅,</span>
+                <span class="block md:headline-single-line mb-3 headline-emphasis">
+                    '<span class="circle-highlight">OO</span>' 모르면
+                </span>
+                <span class="block md:headline-single-line headline-emphasis">
+                    <span class="text-mediclip-yellow font-bold">실패</span>합니다!!
+                </span>
+            </h1>
+            
+            <!-- Shocked Face Image -->
+            <div class="mt-1 mb-1 md:mt-1.5 md:mb-1.5 flex justify-center">
+                <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_b316bbb5-f453-489c-b127-30003f5acff4" 
+                     alt="놀란 표정" 
+                     class="w-[288px] h-[288px] md:w-[360px] md:h-[360px] object-contain opacity-90 max-w-full">
+            </div>
+            
+            <button onclick="scrollToCTA()" class="cta-button bg-mediclip-yellow text-mediclip-navy text-lg md:text-xl font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-mediclip-navy transition-all transform hover:scale-105 mt-8">
+                <i class="fas fa-lightbulb text-mediclip-navy mr-2"></i>마케팅 진단 신청하기
+            </button>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- 2️⃣ Problems Section -->
+    <section class="py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-mediclip-navy mb-8 text-center">
+                    <span class="section-title-highlight">원장님, 이런 고민 하시죠?</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
+                <div class="bg-gray-50 p-6 rounded-xl text-center hover:shadow-lg transition-shadow">
+                    <div class="text-3xl mb-4">💸</div>
+                    <p class="text-base md:text-lg text-gray-800">광고비만 나가고 환자는 안 늘어요</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl text-center hover:shadow-lg transition-shadow">
+                    <div class="text-3xl mb-4">📊</div>
+                    <p class="text-base md:text-lg text-gray-800">리포트를 봐도 무슨 말인지 모르겠어요</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl text-center hover:shadow-lg transition-shadow">
+                    <div class="text-3xl mb-4">❓</div>
+                    <p class="text-base md:text-lg text-gray-800">병원 강점을 어떻게 어필할지 모르겠어요</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl text-center hover:shadow-lg transition-shadow">
+                    <div class="text-3xl mb-4">🔄</div>
+                    <p class="text-base md:text-lg text-gray-800">경쟁 병원과 똑같은 광고만 나가요</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl text-center hover:shadow-lg transition-shadow">
+                    <div class="text-3xl mb-4">📉</div>
+                    <p class="text-base md:text-lg text-gray-800">이벤트 해도 반응 없고 재방문도 안 돼요</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl text-center hover:shadow-lg transition-shadow">
+                    <div class="text-3xl mb-4">🤝</div>
+                    <p class="text-base md:text-lg text-gray-800">소통이 안 되는 마케팅 업체</p>
+                </div>
+            </div>
+            
+            <div class="text-center max-w-3xl mx-auto">
+                <p class="optimized-paragraph text-lg md:text-xl text-gray-700 text-scale-120">
+<strong>지금 광고비는 매달 나가는데<br> 환자는 늘지 않고 계신가요?</strong>
+                </p>
+                
+                <!-- Thinking Face Image -->
+                <div class="mt-4 mb-6 flex justify-center">
+                    <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_42cc78b0-39af-4645-a6e3-8fc55c585318" 
+                         alt="생각하는 표정" 
+                         class="w-60 h-60 md:w-72 md:h-72 object-contain opacity-90">
+                </div>
+                <p class="optimized-paragraph text-lg md:text-xl text-gray-700">
+                    문제는 광고가 아니라,<br class="md:hidden"> <strong>병원 <span class="circle-highlight">현장</span>을 모르는 마케팅입니다.</strong>
+                </p>
+                <div class="bg-mediclip-yellow p-12 rounded-xl flex items-center justify-center min-h-[10rem]">
+                    <p class="optimized-title text-3xl md:text-4xl font-bold text-mediclip-navy text-center leading-relaxed quote-text-lower quote-text-extra-lower">
+                        "병원 성장의<br class="md:hidden"> 본질은 <span class="circle-highlight">현장</span>에<br class="md:hidden"> 있습니다."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3️⃣ Philosophy Section -->
+    <section class="py-16 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-mediclip-navy mb-8 text-center">
+                    <span class="section-title-highlight">병원 <span class="circle-highlight">현장</span>을 아는 전문가들</span>
+                </h2>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <p class="optimized-paragraph text-base md:text-lg text-gray-700">
+                        <strong>메디클립</strong>은 직접 병원에서<br>경영과 마케팅을 담당했던 전문가들이 모여<br>병원의 '진짜 가치'를 발굴해 환자에게 전달합니다.
+                    </p>
+                    
+                    <!-- Confident Face Image -->
+                    <div class="mt-4 mb-4 flex justify-center">
+                        <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_1d1b726a-1eb1-4cc3-a9b8-05e7e517951d" 
+                             alt="자신감 있는 표정" 
+                             class="w-48 h-48 md:w-64 md:h-64 object-contain opacity-90">
+                    </div>
+                    
+                    <p class="optimized-paragraph text-base md:text-lg text-gray-700 mb-8">
+                        단순한 광고 대행사가 아닙니다.<br>
+                        병원 <span class="circle-highlight">현장</span>을 정밀 분석하고<br class="md:hidden"> 체계적으로 접근합니다.
+                    </p>
+                    
+                    <div class="bg-mediclip-navy p-8 rounded-xl flex items-center justify-center min-h-[8rem]">
+                        <p class="optimized-title text-2xl md:text-4xl font-bold text-mediclip-yellow text-center quote-text-lower quote-text-extra-lower text-scale-120">
+                            "모든 병원 광고는<br class="md:hidden"> <span class="circle-highlight-white">현장</span>에서 시작됩니다."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4️⃣ What Makes Us Special -->
+    <section class="py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-center text-mediclip-navy mb-12">
+                    <span class="section-title-highlight">메디클립은 특별합니다</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-gray-50 p-8 rounded-2xl text-center">
+                        <div class="w-16 h-16 bg-mediclip-yellow rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-user-md text-mediclip-navy text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-mediclip-navy mb-4">병원 인하우스<br>전문가 팀</h3>
+                        <p class="optimized-text text-sm md:text-base text-gray-600">
+                            실제 병원에서<br>경영과 마케팅을<br>담당했던 전문가들이<br>현장의 디테일로<br>전략을 설계합니다.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-8 rounded-2xl text-center">
+                        <div class="w-16 h-16 bg-mediclip-yellow rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-handshake text-mediclip-navy text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-mediclip-navy mb-4">리얼 파트너십</h3>
+                        <p class="optimized-text text-sm md:text-base text-gray-600">
+                            리포트만 보내고 끝나는<br>
+                            대행사가 아닙니다.<br>
+                            원장님과 같은 방향을 보며<br>
+                            함께 성장합니다.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-8 rounded-2xl text-center">
+                        <div class="w-16 h-16 bg-mediclip-yellow rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-chart-line text-mediclip-navy text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-mediclip-navy mb-4">투명한 성과 관리</h3>
+                        <p class="optimized-text text-sm md:text-base text-gray-600">
+                            메디클립 전용 플랫폼 리포트로<br>
+                            광고비와 성과를<br>
+                            투명하게 공유합니다.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-mediclip-light-yellow p-8 rounded-2xl">
+                    <h3 class="text-lg md:text-xl font-bold text-mediclip-navy text-center mb-6">핵심 포인트</h3>
+                    <div class="grid md:grid-cols-3 gap-4 text-center">
+                        <div class="flex items-center justify-center">
+                            <span class="text-green-600 mr-2">✅</span>
+                            <span class="text-sm md:text-base text-gray-700">병원 운영 프로세스 이해</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="text-green-600 mr-2">✅</span>
+                            <span class="text-sm md:text-base text-gray-700">의료법 내 합법적 마케팅</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="text-green-600 mr-2">✅</span>
+                            <span class="text-sm md:text-base text-gray-700">환자 심리 기반 메시지 설계</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5️⃣ Comparison Section -->
+    <section id="comparison" class="py-16 md:py-20 bg-mediclip-yellow-bg">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-center text-mediclip-navy mb-12">
+                    <span class="section-title-highlight">메디클립만의 <span class="circle-highlight">경쟁력</span></span>
+                </h2>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full bg-white rounded-2xl shadow-lg overflow-hidden">
+                        <thead class="bg-mediclip-navy text-white">
+                            <tr>
+                                <th class="px-4 py-4 text-center font-semibold text-sm md:text-base">일반 대행사</th>
+                                <th class="px-4 py-4 text-center font-bold text-sm md:text-lg bg-mediclip-yellow text-mediclip-navy">메디클립</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="px-4 py-4 text-sm md:text-base text-center">메뉴얼식 광고</td>
+                                <td class="px-4 py-4 bg-mediclip-light-yellow font-bold text-sm md:text-lg text-mediclip-navy text-center">병원 운영 프로세스 기반</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-4 text-sm md:text-base text-center">단순 예약 늘리기</td>
+                                <td class="px-4 py-4 bg-mediclip-light-yellow font-bold text-sm md:text-lg text-mediclip-navy text-center">환자 심리 기반 실질 예약 확보</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-4 text-sm md:text-base text-center">결과 리포트만</td>
+                                <td class="px-4 py-4 bg-mediclip-light-yellow font-bold text-sm md:text-lg text-mediclip-navy text-center">분석 + <span class="circle-highlight">현장</span> 개선안 제안</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-4 text-sm md:text-base text-center">이벤트 중심</td>
+                                <td class="px-4 py-4 bg-mediclip-light-yellow font-bold text-sm md:text-lg text-mediclip-navy text-center">환자 중심 스토리텔링</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-4 text-sm md:text-base text-center">연락 잘 안 됨</td>
+                                <td class="px-4 py-4 bg-mediclip-light-yellow font-bold text-sm md:text-lg text-mediclip-navy text-center">병원 상황 즉각 대응</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6️⃣ Empathy Section -->
+    <section class="py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-mediclip-navy mb-8 text-center">
+                    <span class="section-title-highlight">"메디클립은 병원의 <span class="circle-highlight">현장</span>을 압니다"</span>
+                </h2>
+                
+                <!-- Winking Face Image -->
+                <div class="mb-8 flex justify-center">
+                    <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_494ad327-3dde-4562-929f-445760cc17d7" 
+                         alt="윙크하는 표정" 
+                         class="w-48 h-48 md:w-64 md:h-64 object-contain opacity-90 max-w-full">
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-2xl mb-8">
+                    <div class="space-y-6 text-lg md:text-2xl text-gray-700 leading-relaxed">
+                        <p><strong>원장님이 진료실에서 느끼는 답답함,</strong><br><span class="empathy-emphasis text-base md:text-lg">압니다.</span></p>
+                        <p><strong>데스크 직원이 겪는 어려움,</strong><br><span class="empathy-emphasis text-base md:text-lg">압니다.</span></p>
+                        <p><strong>환자가 병원을 찾는 기준을,</strong><br><span class="empathy-emphasis text-base md:text-lg">압니다.</span></p>
+                    </div>
+                </div>
+                
+                <div class="bg-mediclip-navy p-8 rounded-2xl text-white flex items-center justify-center min-h-[8rem]">
+                    <p class="optimized-paragraph text-lg md:text-xl text-white text-center quote-text-lower text-scale-120">
+                        메디클립은<br>단순 마케팅 집행이 아닌<br>
+                        병원 <span class="circle-highlight-white">현장</span>의 문제를 파악해<br class="md:hidden"> 결과로 연결합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7️⃣ Trust & Scarcity -->
+    <section class="py-16 md:py-20 bg-mediclip-navy text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="text-xl md:text-2xl font-bold text-white mb-8 quote-text-lower">
+                    <p class="mb-2">메디클립은<br>매월 <span class="pulsing-text text-xl md:text-2xl text-mediclip-yellow">'신규 병원 3곳'</span>만<br>계약합니다.</p>
+                    <p class="mb-6">한 병원, 한 병원<br><span class="circle-highlight-white">현장</span>에서 제대로 책임집니다.</p>
+                    
+                    <!-- Confident Female Face Image -->
+                    <div class="flex justify-center">
+                        <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_7064488b-4ee7-4f36-b688-778da788bdd1" 
+                             alt="자신감 있는 표정" 
+                             class="w-[171px] h-[171px] md:w-[213px] md:h-[213px] object-contain opacity-90">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8️⃣ 3-Step Process -->
+    <section class="py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-center text-mediclip-navy mb-12">
+                    3단계 프로세스
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center relative">
+                        <div class="w-20 h-20 bg-mediclip-yellow rounded-full flex items-center justify-center mx-auto mb-6 relative z-10">
+                            <span class="text-2xl font-bold text-mediclip-navy">1</span>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-mediclip-navy mb-4">진단 & 발굴</h3>
+                        <ul class="text-sm md:text-base text-gray-600 space-y-2 text-center">
+                            <li>• 병원의 숨겨진 강점 발굴</li>
+                            <li>• 환자 여정 분석 (검색→방문→예약)</li>
+                            <li>• 경쟁 병원 포지셔닝 비교</li>
+                            <li>• 의료진 커리어·장비·철학 분석</li>
+                        </ul>
+                        
+                        <!-- Arrow for desktop -->
+                        <div class="hidden md:block absolute top-10 -right-4 text-mediclip-yellow text-3xl">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center relative">
+                        <div class="w-20 h-20 bg-mediclip-yellow rounded-full flex items-center justify-center mx-auto mb-6 relative z-10">
+                            <span class="text-2xl font-bold text-mediclip-navy">2</span>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-mediclip-navy mb-4">전략 설계</h3>
+                        <ul class="text-sm md:text-base text-gray-600 space-y-2 text-center">
+                            <li>• 병원만의 X-factor 스토리화</li>
+                            <li>• 환자 심리 기반 메시지 설계</li>
+                            <li>• 단계별 콘텐츠 전략 수립</li>
+                            <li>• 맞춤 광고 전략 개발</li>
+                        </ul>
+                        
+                        <!-- Arrow for desktop -->
+                        <div class="hidden md:block absolute top-10 -right-4 text-mediclip-yellow text-3xl">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-mediclip-yellow rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-2xl font-bold text-mediclip-navy">3</span>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-mediclip-navy mb-4">실행 & 성장</h3>
+                        <ul class="text-sm md:text-base text-gray-600 space-y-2 text-center">
+                            <li>• 맞춤형 마케팅 실행</li>
+                            <li>• 실시간 성과 모니터링</li>
+                            <li>• 월간 리포트 + 개선안</li>
+                            <li>• 지속적 최적화</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9️⃣ Solutions -->
+    <section id="solutions" class="py-16 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-center text-mediclip-navy mb-12">
+                    <span class="section-title-highlight">메디클립만의 차별화 서비스</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-8 md:items-stretch">
+                    <!-- DNA Consulting -->
+                    <div class="bg-gradient-to-br from-mediclip-navy to-mediclip-navy-light text-white p-8 rounded-2xl flex flex-col h-full">
+                        <div class="flex-1">
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4 text-center">병원 성장<br>DNA 분석 컨설팅</h3>
+                            <p class="text-mediclip-yellow mb-6 font-semibold text-sm md:text-base">
+                                "병원의 숨겨진 X-factor를 찾아드립니다"
+                            </p>
+                            <ul class="space-y-2 mb-6 text-sm md:text-base">
+                                <li>• 병원만의 X-factor 발굴</li>
+                                <li>• 성장단계별 맞춤 로드맵</li>
+                                <li>• 1:1 심층 컨설팅 (대면/비대면)</li>
+                            </ul>
+                        </div>
+                        <div class="bg-mediclip-yellow text-mediclip-navy p-3 rounded-lg text-sm mt-auto">
+                            <p class="font-semibold mb-2">추천 대상</p>
+                            <ul class="text-sm space-y-1">
+                                <li>• 개원 준비 중인 원장님</li>
+                                <li>• 마케팅 방향을 제대로 잡고 싶은 병원</li>
+                                <li>• 성장에 정체를 느끼는 병원</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Basic Package -->
+                    <div class="bg-white border-4 border-mediclip-yellow p-8 rounded-2xl relative flex flex-col h-full">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-mediclip-yellow text-mediclip-navy px-4 py-1 rounded-full text-sm font-bold">
+                            인기
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl md:text-3xl font-bold text-mediclip-navy mb-4 text-center">BASIC 패키지</h3>
+                            <div class="text-2xl md:text-3xl font-bold mb-2"><span class="highlight-light-red">월 99만원</span></div>
+                            <p class="text-gray-600 mb-4 text-sm">VAT포함</p>
+                            <p class="text-mediclip-navy mb-6 font-semibold text-sm md:text-base">
+                                "99만원으로 만드는<br>병원 신뢰의 첫걸음"
+                            </p>
+                            <ul class="space-y-2 mb-6 text-sm md:text-base">
+                                <li>📍 <span class="text-lg font-bold">N 플레이스</span><br>검색 시 눈에 띄는 프로필 & 리뷰 전략</li>
+                                <li>📝 <span class="text-lg font-bold">N 브랜드 블로그</span><br>의료진 철학 스토리텔링 / 키워드 최적화</li>
+                            </ul>
+                        </div>
+                        <div class="bg-mediclip-light-yellow p-3 rounded-lg text-sm mt-auto">
+                            <p class="font-semibold text-mediclip-navy mb-2">추천 대상</p>
+                            <ul class="text-mediclip-navy text-sm space-y-1">
+                                <li>• 개원한 지 얼마 안 된 병원</li>
+                                <li>• 온라인 노출이 부족한 병원</li>
+                                <li>• 꾸준한 신뢰 마케팅이 필요한 병원</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- All-in-One Package -->
+                    <div class="bg-gradient-to-br from-mediclip-yellow to-yellow-300 text-mediclip-navy p-8 rounded-2xl flex flex-col h-full">
+                        <div class="flex-1">
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4 text-center">ALL-IN-ONE 패키지</h3>
+                            <p class="mb-6 font-semibold text-sm md:text-base">
+                                "병원 맞춤 통합 솔루션"
+                            </p>
+                            <ul class="space-y-2 mb-6 text-sm md:text-base">
+                                <li>• 브랜딩 전략 수립</li>
+                                <li>• 네이버 / 블로그 / SNS 통합 운영</li>
+                                <li>• 검색광고 / GFA / 리마케팅</li>
+                                <li>• 환자 여정 설계 & 재방문 관리</li>
+                                <li>• GA4 리포트 / 정기 미팅</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg text-sm mt-auto">
+                            <p class="font-semibold mb-2">추천 대상</p>
+                            <ul class="text-sm space-y-1">
+                                <li>• 마케팅을 확대하고 싶은 병원</li>
+                                <li>• 통합 마케팅이 필요한 중대형 병원</li>
+                                <li>• 장기적 성장 파트너가 필요한 병원</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔟 Results -->
+    <section id="results" class="py-16 md:py-20 bg-mediclip-navy-light text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-12">
+                    <span class="section-title-highlight">숫자로 증명하는 성과</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="text-center bg-white bg-opacity-10 p-6 rounded-xl">
+                        <div class="text-3xl md:text-4xl font-bold text-mediclip-yellow mb-2">📈</div>
+                        <div class="text-2xl md:text-3xl font-bold text-mediclip-yellow mb-2">2.6배</div>
+                        <p class="text-sm md:text-base">진료 예약률 증가</p>
+                    </div>
+                    
+                    <div class="text-center bg-white bg-opacity-10 p-6 rounded-xl">
+                        <div class="text-3xl md:text-4xl font-bold text-mediclip-yellow mb-2">👥</div>
+                        <div class="text-2xl md:text-3xl font-bold text-mediclip-yellow mb-2">+72%</div>
+                        <p class="text-sm md:text-base">신규 환자 증가</p>
+                    </div>
+                    
+                    <div class="text-center bg-white bg-opacity-10 p-6 rounded-xl">
+                        <div class="text-3xl md:text-4xl font-bold text-mediclip-yellow mb-2">💻</div>
+                        <div class="text-2xl md:text-3xl font-bold text-mediclip-yellow mb-2">+200%</div>
+                        <p class="text-sm md:text-base">블로그 방문자</p>
+                    </div>
+                    
+                    <div class="text-center bg-white bg-opacity-10 p-6 rounded-xl">
+                        <div class="text-3xl md:text-4xl font-bold text-mediclip-yellow mb-2">⭐</div>
+                        <div class="text-xl md:text-2xl font-bold text-mediclip-yellow mb-2">상위노출</div>
+                        <p class="text-sm md:text-base">네이버 플레이스</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1️⃣1️⃣ Testimonials -->
+    <section id="testimonials" class="py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-center text-mediclip-navy mb-12">
+                    <span class="section-title-highlight">원장님 후기</span>
+                </h2>
+                
+                <div class="testimonial-slider relative">
+                    <div class="testimonial-track flex transition-transform duration-500">
+                        <div class="testimonial-slide min-w-full">
+                            <div class="bg-gray-50 p-8 rounded-2xl text-center">
+                                <p class="text-xl md:text-2xl font-bold text-gray-700 mb-6">
+                                    "병원을 이해하는 마케팅이 이렇게 다를 줄 몰랐습니다."
+                                </p>
+                                <p class="text-mediclip-navy font-semibold">강남 ○○ 성형외과 원장님</p>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-slide min-w-full">
+                            <div class="bg-gray-50 p-8 rounded-2xl text-center">
+                                <p class="text-xl md:text-2xl font-bold text-gray-700 mb-6">
+                                    "<span class="circle-highlight">현장</span>을 아니까 소통이 빠르고,<br>전략이 정확합니다."
+                                </p>
+                                <p class="text-mediclip-navy font-semibold">서울 ○○ 피부과 원장님</p>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-slide min-w-full">
+                            <div class="bg-gray-50 p-8 rounded-2xl text-center">
+                                <p class="text-xl md:text-2xl font-bold text-gray-700 mb-6">
+                                    "개원 초기 어려움을 덕분에 극복할 수 있었어요."
+                                </p>
+                                <p class="text-mediclip-navy font-semibold">경기 ○○한의원 원장님</p>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-slide min-w-full">
+                            <div class="bg-gray-50 p-8 rounded-2xl text-center">
+                                <p class="text-xl md:text-2xl font-bold text-gray-700 mb-6">
+                                    "환자들이 '선생님 병원 믿고 왔어요'라고 말합니다."
+                                </p>
+                                <p class="text-mediclip-navy font-semibold">인천 ○○ 정형외과 원장님</p>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-slide min-w-full">
+                            <div class="bg-gray-50 p-8 rounded-2xl text-center">
+                                <p class="text-xl md:text-2xl font-bold text-gray-700 mb-6">
+                                    "광고비가 낭비가 아니라 투자라는 걸 처음 느꼈습니다."
+                                </p>
+                                <p class="text-mediclip-navy font-semibold">부산 ○○ 치과 원장님</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation dots -->
+                    <div class="flex justify-center mt-8 space-x-2">
+                        <button class="testimonial-dot w-3 h-3 rounded-full bg-mediclip-yellow" data-slide="0"></button>
+                        <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-slide="1"></button>
+                        <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-slide="2"></button>
+                        <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-slide="3"></button>
+                        <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-slide="4"></button>
+                    </div>
+                    
+                    <!-- Thumbs Up Face Image -->
+                    <div class="mt-8 flex justify-center">
+                        <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_69919376-eb46-4456-b422-696f73cfd599" 
+                             alt="엄지척 하는 표정" 
+                             class="w-64 h-64 md:w-80 md:h-80 object-contain opacity-90">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1️⃣2️⃣ Final Philosophy -->
+    <section class="py-16 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-center text-mediclip-navy mb-8">
+                    <span class="section-title-highlight">메디클립은 다릅니다</span>
+                </h2>
+                
+                <!-- Idea Lightbulb Image -->
+                <div class="mb-8 flex justify-center">
+                    <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_493250d4-2b5a-4b67-9cf7-de12f40d1567" 
+                         alt="아이디어 전구" 
+                         class="w-64 h-64 md:w-80 md:h-80 object-contain opacity-90">
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center p-8 bg-white rounded-2xl">
+                        <div class="w-16 h-16 bg-mediclip-navy rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-2xl font-bold text-mediclip-yellow">1</span>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-mediclip-navy mb-4">본질에 집중</h3>
+                        <p class="text-sm md:text-base text-gray-600">병원의 진짜 가치를 환자에게 전달합니다.</p>
+                    </div>
+                    
+                    <div class="text-center p-8 bg-white rounded-2xl">
+                        <div class="w-16 h-16 bg-mediclip-navy rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-2xl font-bold text-mediclip-yellow">2</span>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-mediclip-navy mb-4">투명한 소통</h3>
+                        <p class="text-sm md:text-base text-gray-600">성과와 과정을 숨김없이 공유합니다.</p>
+                    </div>
+                    
+                    <div class="text-center p-8 bg-white rounded-2xl">
+                        <div class="w-16 h-16 bg-mediclip-navy rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-2xl font-bold text-mediclip-yellow">3</span>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-mediclip-navy mb-4">든든한 파트너</h3>
+                        <p class="text-sm md:text-base text-gray-600">병원의 긴 여정을 함께 합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="cta" class="py-16 md:py-20 bg-mediclip-yellow">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <button onclick="scrollToForm()" class="bg-mediclip-navy text-mediclip-yellow text-xl md:text-2xl font-bold px-8 py-4 rounded-full hover:bg-gray-800 transition-all transform hover:scale-105 mb-8 group">
+                    <i class="fas fa-lightbulb text-mediclip-yellow mr-2 group-hover:text-mediclip-yellow"></i>마케팅 진단 신청하기
+                </button>
+                
+                <div class="text-xl md:text-2xl font-bold text-mediclip-navy mb-8">
+                    <p class="mb-2">메디클립은<br>매월 <span class="pulsing-text text-xl md:text-2xl">'신규 병원 3곳'</span>만<br>계약합니다.</p>
+                    <p class="mb-6">한 병원, 한 병원<br><span class="circle-highlight">현장</span>에서 제대로 책임집니다.</p>
+                    
+                    <!-- Professional Male Face Image -->
+                    <div class="flex justify-center">
+                        <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_30a4280c-c9a6-4cdf-b0b0-0a6b1cc82d5c" 
+                             alt="전문가 표정" 
+                             class="w-48 h-48 md:w-60 md:h-60 object-contain opacity-90">
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-12">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="w-12 h-12 bg-mediclip-navy rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-clipboard-list text-mediclip-yellow"></i>
+                        </div>
+                        <span class="text-base md:text-lg text-mediclip-navy font-semibold">병원 마케팅 현황 분석</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="w-12 h-12 bg-mediclip-navy rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-search text-mediclip-yellow"></i>
+                        </div>
+                        <span class="text-base md:text-lg text-mediclip-navy font-semibold">경쟁 병원 포지셔닝 비교</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="w-12 h-12 bg-mediclip-navy rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-lightbulb text-mediclip-yellow"></i>
+                        </div>
+                        <span class="text-base md:text-lg text-mediclip-navy font-semibold">맞춤 성장 전략 제안</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="w-12 h-12 bg-mediclip-navy rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-won-sign text-mediclip-yellow"></i>
+                        </div>
+                        <span class="text-base md:text-lg text-mediclip-navy font-semibold">예상 마케팅 비용 안내</span>
+                    </div>
+                </div>
+                
+                <!-- CTA Form -->
+                <div id="consultation-form" class="bg-white rounded-2xl p-6 md:p-8 text-mediclip-navy max-w-2xl mx-auto">
+
+                    
+                    <form id="ctaForm" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">병원명 *</label>
+                            <input type="text" name="hospitalName" required class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-mediclip-yellow text-sm md:text-base">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">신청자명 *</label>
+                            <input type="text" name="applicantName" required class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-mediclip-yellow text-sm md:text-base">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">연락처 *</label>
+                            <input type="tel" name="phone" required class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-mediclip-yellow text-sm md:text-base">
+                        </div>
+                        
+
+                        <div class="flex items-start">
+                            <input type="checkbox" name="privacy" required class="mr-2 mt-0.5">
+                            <label class="text-sm">
+                                개인정보 수집 및 이용에 동의합니다. 
+                                <button type="button" onclick="openPrivacyModal()" class="text-mediclip-navy underline hover:text-mediclip-yellow ml-1">
+                                    (약관보기)
+                                </button>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-mediclip-navy text-mediclip-yellow text-lg md:text-xl font-bold py-4 rounded-lg hover:bg-gray-800 transition-colors group">
+                            <i class="fas fa-lightbulb text-mediclip-yellow mr-2 group-hover:text-mediclip-yellow"></i>마케팅 진단 신청하기
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-center text-mediclip-navy mb-12">
+                    자주 묻는 질문
+                </h2>
+                
+                <div class="space-y-4">
+
+                    <div class="faq-item bg-gray-50 rounded-lg shadow-sm">
+                        <button class="faq-question w-full px-6 py-4 text-left font-semibold text-mediclip-navy hover:bg-gray-100 focus:outline-none text-sm md:text-base">
+                            Q. 컨설팅은 어떤 방식으로 진행되나요?
+                            <i class="fas fa-chevron-down float-right transform transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 py-4 text-gray-700 text-sm md:text-base">
+                            1차(사전), 2차(미팅), 3차(계약 후)<br>심층 인터뷰를 통해 진행됩니다.<br>원장님의 철학과 병원의 <span class="circle-highlight">현장</span>을 깊이 파악하여 최적의 솔루션을 도출합니다.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-gray-50 rounded-lg shadow-sm">
+                        <button class="faq-question w-full px-6 py-4 text-left font-semibold text-mediclip-navy hover:bg-gray-100 focus:outline-none text-sm md:text-base">
+                            Q. 일반 광고대행사와 무엇이 다른가요?
+                            <i class="fas fa-chevron-down float-right transform transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 py-4 text-gray-700 text-sm md:text-base">
+                            저희는 단순 광고 집행 대행사가 아닌<br><strong>'성장 파트너'</strong>입니다.<br>병원의 본질적인 가치를 찾아 브랜딩하고,<br>장기 성장을 위한 기반을 만듭니다.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-gray-50 rounded-lg shadow-sm">
+                        <button class="faq-question w-full px-6 py-4 text-left font-semibold text-mediclip-navy hover:bg-gray-100 focus:outline-none text-sm md:text-base">
+                            Q. 어떤 병원에 가장 효과적인가요?
+                            <i class="fas fa-chevron-down float-right transform transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 py-4 text-gray-700 text-sm md:text-base">
+                            마케팅 효과에 불안감을 느끼는 <strong>중소형 병원</strong>,<br>차별화 포인트를 찾지 못한 <strong>신규 개원 병원</strong> 등<br>진정성 있는 마케팅으로 신뢰를 쌓고 싶은<br>모든 병원에 효과적입니다.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-gray-50 rounded-lg shadow-sm">
+                        <button class="faq-question w-full px-6 py-4 text-left font-semibold text-mediclip-navy hover:bg-gray-100 focus:outline-none text-sm md:text-base">
+                            Q. 성과는 어떻게 확인할 수 있나요?
+                            <i class="fas fa-chevron-down float-right transform transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 py-4 text-gray-700 text-sm md:text-base">
+                            매월 상세한 <strong>성과 리포트</strong>를 제공합니다.<br>GA4 등 도구를 통해 효율을 지표화하고,<br>병원 매출과 연계하여 <strong>투명하게 공유</strong>합니다.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-gray-50 rounded-lg shadow-sm">
+                        <button class="faq-question w-full px-6 py-4 text-left font-semibold text-mediclip-navy hover:bg-gray-100 focus:outline-none text-sm md:text-base">
+                            Q. 지방 병원도 이용이 가능한가요?
+                            <i class="fas fa-chevron-down float-right transform transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 py-4 text-gray-700 text-sm md:text-base">
+                            네, 가능합니다.<br>전국 어디서든 온라인 미팅과 커뮤니케이션으로 동일한 퀄리티를 제공합니다.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-gray-50 rounded-lg shadow-sm">
+                        <button class="faq-question w-full px-6 py-4 text-left font-semibold text-mediclip-navy hover:bg-gray-100 focus:outline-none text-sm md:text-base">
+                            Q. 최소 계약 기간이 있나요?
+                            <i class="fas fa-chevron-down float-right transform transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 py-4 text-gray-700 text-sm md:text-base">
+                            패키지에 따라 다르며 단기 프로젝트부터 장기 파트너십까지 병원 상황에 맞게 협의합니다.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-gray-50 rounded-lg shadow-sm">
+                        <button class="faq-question w-full px-6 py-4 text-left font-semibold text-mediclip-navy hover:bg-gray-100 focus:outline-none text-sm md:text-base">
+                            Q. 마케팅 비용은 어떻게 되나요?
+                            <i class="fas fa-chevron-down float-right transform transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 py-4 text-gray-700 text-sm md:text-base">
+                            병원 규모·목표·서비스 범위에 따라 맞춤 견적이 책정됩니다.<br>합리적인 비용으로 최고의 효과를 경험하실 수 있도록<br>상담 시 상세히 안내해 드립니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-mediclip-navy text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-4">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/481a0ac585fc8013eb526673ed7c9ca9" alt="MEDICLIP 로고" class="h-12 md:h-16 mx-auto object-contain">
+                </div>
+                <p class="text-sm md:text-base mb-8 leading-relaxed">
+                    병원 <span class="circle-highlight-white">현장</span>을 잘 아는 병원 경영·마케팅 전문가들이<br>
+                    병원의 진짜 가치를 발굴해 전달하는<br>메디컬 전문<br>경영 컨설팅·마케팅 대행사입니다.
+                </p>
+                
+                <div class="mb-8 text-sm">
+                    <div class="text-center">
+                        <h4 class="font-semibold mb-4">서비스</h4>
+                        <ul class="space-y-2 text-gray-300 mb-6">
+                            <li>마케팅 진단</li>
+                            <li>병원 성장 DNA 분석 컨설팅</li>
+                            <li>BASIC 패키지</li>
+                            <li>ALL-IN-ONE 패키지</li>
+                        </ul>
+                        
+
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-700 pt-8">
+                    <div class="text-center space-y-3 mb-6">
+                        <div class="text-gray-300 text-sm space-y-1">
+                            <p class="font-semibold">메디클립</p>
+                            <p>사업자등록번호 702-17-02664</p>
+                            <p><i class="fas fa-map-marker-alt mr-2"></i>서울 강남구 강남대로112길 47 2층</p>
+                            <p><i class="fas fa-envelope mr-2"></i>1mediclip@gmail.com</p>
+                            <p>개인정보관리책임자 김지민</p>
+                        </div>
+                        <div class="pt-2">
+                            <button onclick="openPrivacyModal()" class="text-gray-300 hover:text-mediclip-yellow text-sm underline transition-colors">
+                                개인정보처리방침
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">© 2025 MEDICLIP. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center">
+            <div class="text-6xl text-green-500 mb-4">✓</div>
+            <h3 class="text-2xl font-bold text-mediclip-navy mb-4">신청 완료!</h3>
+            <p class="text-gray-700 mb-6">
+                마케팅 진단 신청이 완료되었습니다.<br>
+                빠른 시일 내에 연락드리겠습니다.
+            </p>
+            <button onclick="closeSuccessModal()" class="bg-mediclip-yellow text-mediclip-navy px-6 py-2 rounded-full font-semibold">
+                확인
+            </button>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden">
+                <!-- Header -->
+                <div class="bg-mediclip-navy text-white p-6 flex justify-between items-center">
+                    <h2 class="text-xl md:text-2xl font-bold">개인정보 수집 및 이용에 관한 동의</h2>
+                    <button onclick="closePrivacyModal()" class="text-white hover:text-mediclip-yellow text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <!-- Content -->
+                <div class="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
+                    <div class="space-y-6 text-gray-700 leading-relaxed">
+                        <section>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">1. 수집하는 개인정보 항목</h3>
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <p class="font-medium mb-2">수집 항목:</p>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>병원명</li>
+                                    <li>신청자명</li>
+                                    <li>연락처 (전화번호)</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">2. 개인정보 수집 및 이용 목적</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>마케팅 진단 신청 서비스 제공</li>
+                                <li>신청자 본인 확인 및 연락</li>
+                                <li>마케팅 상담 및 컨설팅 서비스 안내</li>
+                                <li>서비스 개선을 위한 통계 분석</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">3. 개인정보 보유 및 이용 기간</h3>
+                            <div class="bg-yellow-50 p-4 rounded-lg">
+                                <p><strong>보유기간:</strong> 수집일로부터 <strong class="text-red-600">3년</strong></p>
+                                <p class="text-sm text-gray-600 mt-2">단, 관련 법령에 따라 더 긴 보존이 필요한 경우 해당 기간까지 보유</p>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">4. 개인정보 제3자 제공</h3>
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <p class="font-medium text-green-800">메디클립은 수집된 개인정보를 제3자에게 제공하지 않습니다.</p>
+                                <p class="text-sm text-gray-600 mt-2">단, 법령에 의한 요구가 있거나 이용자의 별도 동의가 있는 경우 예외</p>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">5. 개인정보 처리 위탁</h3>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="mb-2">원활한 서비스 제공을 위해 아래와 같이 개인정보 처리를 위탁합니다:</p>
+                                <div class="overflow-x-auto">
+                                    <table class="min-w-full table-auto">
+                                        <thead class="bg-gray-200">
+                                            <tr>
+                                                <th class="px-4 py-2 text-left text-sm">수탁업체</th>
+                                                <th class="px-4 py-2 text-left text-sm">위탁업무</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="border-t">
+                                                <td class="px-4 py-2 text-sm">Google LLC</td>
+                                                <td class="px-4 py-2 text-sm">데이터 저장 및 관리 (Google Sheets)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">6. 개인정보 보호를 위한 안전조치</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>개인정보에 대한 접근 권한 최소화</li>
+                                <li>개인정보 처리 시스템 접근 권한 관리</li>
+                                <li>개인정보의 안전한 저장을 위한 보안 시스템 운영</li>
+                                <li>정기적인 보안 점검 및 개선</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">7. 정보주체의 권리</h3>
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <p class="mb-2">이용자는 다음과 같은 권리를 행사할 수 있습니다:</p>
+                                <ul class="list-disc list-inside space-y-1 text-sm">
+                                    <li><strong>개인정보 열람권:</strong> 개인정보 처리 현황에 대한 열람 요구</li>
+                                    <li><strong>개인정보 정정·삭제권:</strong> 잘못된 정보의 수정이나 삭제 요구</li>
+                                    <li><strong>개인정보 처리정지권:</strong> 개인정보 처리 중단 요구</li>
+                                    <li><strong>손해배상청구권:</strong> 개인정보 침해로 인한 정신적·재산적 피해 배상 요구</li>
+                                </ul>
+                                <p class="text-sm text-gray-600 mt-3">
+                                    <strong>권리 행사 방법:</strong> 개인정보보호책임자에게 서면, 전화, 이메일로 연락하시면 지체 없이 조치하겠습니다.
+                                </p>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">8. 개인정보의 파기</h3>
+                            <div class="bg-red-50 p-4 rounded-lg">
+                                <p class="text-sm mb-2"><strong>파기 절차:</strong></p>
+                                <ul class="list-disc list-inside space-y-1 text-sm">
+                                    <li>보유기간 경과 시 지체 없이 파기</li>
+                                    <li>파기 시 복구 또는 재생되지 않도록 안전하게 처리</li>
+                                </ul>
+                                <p class="text-sm mt-3 mb-2"><strong>파기 방법:</strong></p>
+                                <ul class="list-disc list-inside space-y-1 text-sm">
+                                    <li><strong>전자적 파일:</strong> 기술적 방법을 사용하여 복구 불가능하게 삭제</li>
+                                    <li><strong>종이 문서:</strong> 분쇄기로 분쇄하거나 소각</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">9. 개인정보 침해 신고</h3>
+                            <div class="bg-yellow-50 p-4 rounded-lg">
+                                <p class="text-sm mb-2">개인정보 침해신고센터 및 관련 기관:</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                    <div>
+                                        <p class="font-medium">개인정보 침해신고센터</p>
+                                        <p>국번없이 <strong>privacy.go.kr</strong></p>
+                                        <p>전화: <strong>privacy.go.kr</strong></p>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">개인정보 분쟁조정위원회</p>
+                                        <p><strong>kopico.go.kr</strong></p>
+                                        <p>전화: <strong>1833-6972</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">10. 개인정보 보호책임자</h3>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="font-medium text-sm">개인정보 보호책임자</p>
+                                        <p class="text-sm">담당자: 김지민</p>
+                                        <p class="text-sm">이메일: 1mediclip@gmail.com</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-sm">개인정보 처리 담당부서</p>
+                                        <p class="text-sm">부서명: 고객서비스팀</p>
+                                        <p class="text-sm">연락처: 0507-1427-0398</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">11. 개인정보처리방침 변경</h3>
+                            <p class="text-sm">본 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.</p>
+                        </section>
+
+                        <section class="border-t pt-6">
+                            <div class="text-center">
+                                <p class="font-semibold text-gray-800">시행일자: 2025년 7월 7일</p>
+                                <p class="text-gray-600 text-sm mt-2">메디클립(MEDICLIP)</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                
+                <!-- Footer -->
+                <div class="bg-gray-50 p-4 text-center">
+                    <button onclick="closePrivacyModal()" class="bg-mediclip-navy text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors">
+                        닫기
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

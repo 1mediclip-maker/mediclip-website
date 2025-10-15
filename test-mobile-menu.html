@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모바일 메뉴 테스트</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen p-4">
+        <h1 class="text-2xl font-bold mb-8 text-center">모바일 햄버거 메뉴 테스트</h1>
+        
+        <!-- 테스트용 헤더 -->
+        <header class="bg-white shadow-lg rounded-lg p-4 mb-8">
+            <nav class="flex items-center justify-between">
+                <div class="text-lg font-bold">MEDICLIP</div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-blue-600 text-xl focus:outline-none bg-gray-100 p-2 rounded" type="button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden bg-white border-t shadow-lg transform -translate-y-full opacity-0 transition-all duration-300 ease-in-out overflow-hidden">
+                <div class="px-4 py-4 space-y-3">
+                    <a href="#" class="mobile-menu-link block text-gray-700 hover:text-blue-600 transition-colors py-3 text-base font-medium border-b border-gray-100">메디클립 서비스</a>
+                    <a href="#" class="mobile-menu-link block text-gray-700 hover:text-blue-600 transition-colors py-3 text-base font-medium border-b border-gray-100">차별점</a>
+                    <a href="#" class="mobile-menu-link block text-gray-700 hover:text-blue-600 transition-colors py-3 text-base font-medium border-b border-gray-100">성과</a>
+                    <a href="#" class="mobile-menu-link block text-gray-700 hover:text-blue-600 transition-colors py-3 text-base font-medium border-b border-gray-100">고객후기</a>
+                    <div class="pt-4">
+                        <button id="mobile-cta-button" class="block w-full bg-yellow-400 text-blue-900 px-6 py-4 rounded-full font-semibold hover:bg-blue-900 hover:text-yellow-400 transition-colors text-base">
+                            💡 무료 진단 신청
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="bg-white rounded-lg p-6 shadow">
+            <h2 class="text-lg font-semibold mb-4">테스트 방법:</h2>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                <li>화면 크기를 모바일 크기로 줄이거나 개발자도구에서 모바일 모드로 전환</li>
+                <li>상단 우측의 햄버거 버튼(☰) 클릭</li>
+                <li>메뉴가 부드럽게 나타나는지 확인</li>
+                <li>메뉴 항목 클릭 시 메뉴가 닫히는지 확인</li>
+                <li>메뉴 외부 클릭 시 메뉴가 닫히는지 확인</li>
+            </ol>
+        </div>
+        
+        <div class="mt-8 bg-green-100 border border-green-400 rounded-lg p-4">
+            <p class="text-green-800 font-medium">✅ 콘솔 로그를 확인하세요 (F12 → Console)</p>
+        </div>
+    </div>
+
+    <script>
+        // 모바일 메뉴 함수들 복사
+        let mobileMenuOpen = false;
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.getElementById('mobile-menu-button');
+            
+            if (!mobileMenu || !menuButton) {
+                console.error('Mobile menu elements not found');
+                return;
+            }
+            
+            mobileMenuOpen = !mobileMenuOpen;
+            
+            if (mobileMenuOpen) {
+                // 메뉴 열기
+                mobileMenu.style.display = 'block';
+                setTimeout(() => {
+                    mobileMenu.classList.remove('-translate-y-full', 'opacity-0');
+                    mobileMenu.classList.add('translate-y-0', 'opacity-100');
+                }, 10);
+                
+                // 햄버거 아이콘을 X로 변경
+                menuButton.innerHTML = '<i class="fas fa-times"></i>';
+                
+                console.log('✅ Mobile menu opened');
+            } else {
+                // 메뉴 닫기
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100');
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0');
+                
+                setTimeout(() => {
+                    mobileMenu.style.display = 'none';
+                }, 300);
+                
+                // X를 햄버거 아이콘으로 변경
+                menuButton.innerHTML = '<i class="fas fa-bars"></i>';
+                
+                console.log('✅ Mobile menu closed');
+            }
+        }
+
+        function closeMobileMenu() {
+            if (mobileMenuOpen) {
+                toggleMobileMenu();
+            }
+        }
+
+        // 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+            const mobileCTAButton = document.getElementById('mobile-cta-button');
+            
+            console.log('🚀 Initializing mobile menu test...');
+            
+            // 햄버거 버튼 클릭 이벤트
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('🍔 Hamburger button clicked');
+                    toggleMobileMenu();
+                });
+                
+                // 터치 이벤트도 추가
+                mobileMenuButton.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('👆 Hamburger button touched');
+                    toggleMobileMenu();
+                });
+            }
+            
+            // 메뉴 링크 클릭 시 메뉴 닫기
+            mobileMenuLinks.forEach((link, index) => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log(`🔗 Menu link ${index + 1} clicked`);
+                    closeMobileMenu();
+                });
+            });
+            
+            // CTA 버튼 클릭 시 메뉴 닫기
+            if (mobileCTAButton) {
+                mobileCTAButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('🎯 CTA button clicked');
+                    closeMobileMenu();
+                });
+            }
+            
+            // 메뉴 외부 클릭 시 닫기
+            document.addEventListener('click', function(e) {
+                if (mobileMenuOpen && mobileMenu && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    console.log('🌍 Clicked outside menu - closing');
+                    closeMobileMenu();
+                }
+            });
+            
+            // 초기 상태 설정
+            if (mobileMenu) {
+                mobileMenu.style.display = 'none';
+            }
+            
+            console.log('✅ Mobile menu test initialized successfully!');
+        });
+    </script>
+</body>
+</html>
